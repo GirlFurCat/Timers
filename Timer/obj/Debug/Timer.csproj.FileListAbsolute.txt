@@ -1,0 +1,7 @@
+F:\Timer\Timer\Timer\bin\Debug\Timer.exe.config
+F:\Timer\Timer\Timer\bin\Debug\Timer.exe
+F:\Timer\Timer\Timer\bin\Debug\Timer.pdb
+F:\Timer\Timer\Timer\obj\Debug\Timer.csproj.AssemblyReference.cache
+F:\Timer\Timer\Timer\obj\Debug\Timer.csproj.CoreCompileInputs.cache
+F:\Timer\Timer\Timer\obj\Debug\Timer.exe
+F:\Timer\Timer\Timer\obj\Debug\Timer.pdb
