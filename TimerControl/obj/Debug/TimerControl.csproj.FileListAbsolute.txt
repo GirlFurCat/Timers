@@ -24,3 +24,16 @@ D:\代码\Timer(2)\Timer\Timer\TimerControl\obj\Debug\TimerControl.csproj.CoreCo
 D:\代码\Timer(2)\Timer\Timer\TimerControl\obj\Debug\TimerControl.csproj.CopyComplete
 D:\代码\Timer(2)\Timer\Timer\TimerControl\obj\Debug\TimerControl.exe
 D:\代码\Timer(2)\Timer\Timer\TimerControl\obj\Debug\TimerControl.pdb
+F:\Timer\Timers\Main\Timers\TimerControl\bin\Debug\TimerControl.exe.config
+F:\Timer\Timers\Main\Timers\TimerControl\bin\Debug\TimerControl.exe
+F:\Timer\Timers\Main\Timers\TimerControl\bin\Debug\TimerControl.pdb
+F:\Timer\Timers\Main\Timers\TimerControl\bin\Debug\Newtonsoft.Json.dll
+F:\Timer\Timers\Main\Timers\TimerControl\bin\Debug\Newtonsoft.Json.xml
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.csproj.AssemblyReference.cache
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.Form1.resources
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.Properties.Resources.resources
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.csproj.GenerateResource.cache
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.csproj.CoreCompileInputs.cache
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.csproj.CopyComplete
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.exe
+F:\Timer\Timers\Main\Timers\TimerControl\obj\Debug\TimerControl.pdb

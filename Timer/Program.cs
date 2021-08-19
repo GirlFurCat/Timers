@@ -14,6 +14,22 @@ namespace Timer
         static AutoResetEvent myEvent = new AutoResetEvent(false);
         static void Main(string[] args)
         {
+            Console.WriteLine("请输入半径");
+            double r = Convert.ToDouble(Console.ReadLine());//半径
+            double Π= 3.14159265358979323846;
+            Console.WriteLine("请输入高");
+            double h = Convert.ToDouble(Console.ReadLine());//高
+
+            Console.WriteLine(string.Format("体积：{0:N2}",Convert.ToDouble(r*r*Π*4/3)));
+
+
+
+
+
+
+
+
+
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             keyValuePairs.Remove("11");
             keyValuePairs.Add("11","22");

@@ -162,7 +162,7 @@ namespace TimerControl
             {
                 //发生错误时记录Log并弹出错误
                 Log(ex.StackTrace, ex.Message, "Form1_Load", true);
-                MessageBoxShow(ex.Message);
+                MessageBoxShow_Error(ex.Message);
             }
         }
 
@@ -259,7 +259,7 @@ namespace TimerControl
                     }
                     else
                     {
-                        MessageBoxShow(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
+                        MessageBoxShow_Error(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
                     }
                 }
             }
@@ -267,7 +267,7 @@ namespace TimerControl
             {
                 //发生错误时记录Log并弹出错误
                 Log(ex.StackTrace, ex.Message, "AddConnection", true);
-                MessageBoxShow(ex.Message);
+                MessageBoxShow_Error(ex.Message);
             }
         }
 
@@ -295,9 +295,9 @@ namespace TimerControl
                 //提示指示灯已接收数据
                 AutoResetEventList[returnMessage.StateCode].Set();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBoxShow_Error(ex.Message);
             }
         }
 
@@ -424,10 +424,21 @@ namespace TimerControl
         /// 弹出提示信息
         /// </summary>
         /// <param name="Value">文本</param>
-        private void MessageBoxShow(string Value)
+        private void MessageBoxShow_Error(string Value)
         {
             _this.Invoke(new Action(() => {
-                MessageBox.Show(Value);
+                MessageBox.Show(Value, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }));
+        }
+
+        /// <summary>
+        /// 弹出提示信息
+        /// </summary>
+        /// <param name="Value">文本</param>
+        private void MessageBoxShow_Info(string Value)
+        {
+            _this.Invoke(new Action(() => {
+                MessageBox.Show(Value,"提示", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }));
         }
 
@@ -497,7 +508,7 @@ namespace TimerControl
                 }
                 else
                 {
-                    MessageBoxShow(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
+                    MessageBoxShow_Error(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
                 }
 
 
@@ -505,7 +516,7 @@ namespace TimerControl
             catch (Exception ex)
             {
                 Log(ex.StackTrace, ex.Message, "AddConnection", true);
-                MessageBoxShow(ex.Message);
+                MessageBoxShow_Error(ex.Message);
             }
         }
 
@@ -560,6 +571,7 @@ namespace TimerControl
             {
                 //需要打开的路径
                 OpenPath = ParentPath;
+
                 //初始化待发送的信息
                 transmitMessage = new TransmitMessage();
 
@@ -606,7 +618,54 @@ namespace TimerControl
                 }
                 else
                 {
-                    MessageBoxShow(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
+                    MessageBoxShow_Error(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxShow_Error(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 删除文件或文件夹
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_DeleteFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FileListView.SelectedItems != null)
+                {
+                    //需要删除的文件
+                    OpenPath += FileListView.SelectedItems[0].Text ;
+
+                    //初始化待发送的信息
+                    transmitMessage = new TransmitMessage();
+
+                    //向客户端发送信息
+                    Clinet_Send(3);
+
+                    //判断是否完成任务
+                    if (ReturnMessageList[transmitMessage.StateCode].State)
+                    {
+                        MessageBoxShow_Info(ReturnMessageList[transmitMessage.StateCode].Message);
+                    }
+                    else
+                    {
+                        MessageBoxShow_Error(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
+                    }
+
+                    //删除本次获取到的数据
+                    ReturnMessageList.Remove(transmitMessage.StateCode);
+
+                    //路径返回上一级并刷新
+                    UpLevel_Click(sender, e);
+                }
+                else
+                {
+                    MessageBoxShow_Info("未选择文件或文件夹！");
                 }
             }
             catch (Exception)
