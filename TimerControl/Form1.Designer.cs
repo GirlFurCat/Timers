@@ -52,10 +52,10 @@ namespace TimerControl
             this.FileListView.FullRowSelect = true;
             this.FileListView.HideSelection = false;
             this.FileListView.HoverSelection = true;
-            this.FileListView.Location = new System.Drawing.Point(12, 102);
+            this.FileListView.Location = new System.Drawing.Point(12, 110);
             this.FileListView.MultiSelect = false;
             this.FileListView.Name = "FileListView";
-            this.FileListView.Size = new System.Drawing.Size(776, 272);
+            this.FileListView.Size = new System.Drawing.Size(776, 294);
             this.FileListView.SmallImageList = this.FileImageList;
             this.FileListView.TabIndex = 0;
             this.FileListView.UseCompatibleStateImageBehavior = false;
@@ -98,9 +98,9 @@ namespace TimerControl
             // 
             // FilePath
             // 
-            this.FilePath.Location = new System.Drawing.Point(12, 78);
+            this.FilePath.Location = new System.Drawing.Point(12, 84);
             this.FilePath.Name = "FilePath";
-            this.FilePath.Size = new System.Drawing.Size(776, 21);
+            this.FilePath.Size = new System.Drawing.Size(776, 20);
             this.FilePath.TabIndex = 1;
             this.FilePath.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FilePath_KeyUp);
             // 
@@ -108,15 +108,15 @@ namespace TimerControl
             // 
             this.ConnList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ConnList.FormattingEnabled = true;
-            this.ConnList.Location = new System.Drawing.Point(632, 11);
+            this.ConnList.Location = new System.Drawing.Point(632, 12);
             this.ConnList.Name = "ConnList";
-            this.ConnList.Size = new System.Drawing.Size(156, 20);
+            this.ConnList.Size = new System.Drawing.Size(156, 21);
             this.ConnList.TabIndex = 2;
             this.ConnList.SelectedIndexChanged += new System.EventHandler(this.ConnList_SelectedIndexChanged);
             // 
             // UpLevel
             // 
-            this.UpLevel.Location = new System.Drawing.Point(110, 381);
+            this.UpLevel.Location = new System.Drawing.Point(84, 411);
             this.UpLevel.Name = "UpLevel";
             this.UpLevel.Size = new System.Drawing.Size(75, 23);
             this.UpLevel.TabIndex = 3;
@@ -126,9 +126,9 @@ namespace TimerControl
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 415);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.UpLevel);
             this.Controls.Add(this.ConnList);
             this.Controls.Add(this.FilePath);

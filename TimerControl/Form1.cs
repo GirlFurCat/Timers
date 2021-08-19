@@ -90,16 +90,14 @@ namespace TimerControl
         {
             get
             {
-                string Path = OpenPath.Substring(0, OpenPath.LastIndexOf('\\'));
-                Path = Path.Substring(0, Path.LastIndexOf('\\'));
-                if (Path.Last() == ':')
+                int PathLevelNum = OpenPath.Split('\\').Where(x => !string.IsNullOrEmpty(x)).Count();
+                string ReturnValue = string.Empty;
+                List<string> PathList = OpenPath.Split('\\').Where(x => !string.IsNullOrEmpty(x)).ToList();
+                for(int i = 0; i < PathList.Count - 1; i++)
                 {
-                    return "";
+                    ReturnValue += PathList[i] + "\\";
                 }
-                else
-                {
-                    return Path + "\\";
-                }
+                return ReturnValue;
             }
         }
 
@@ -261,7 +259,7 @@ namespace TimerControl
                     }
                     else
                     {
-                         MessageBoxShow(string.Format("客户端发生错误，错误信息：{0}",ReturnMessageList[transmitMessage.StateCode].Message));
+                        MessageBoxShow(string.Format("客户端发生错误，错误信息：{0}", ReturnMessageList[transmitMessage.StateCode].Message));
                     }
                 }
             }
@@ -362,7 +360,7 @@ namespace TimerControl
 
                 //选择图片
                 listViewItem.ImageIndex = VerifyFileType(Filetype, x.Size);
-                
+
                 //添加名称
                 listViewItem.Text = x.FileName;
 
@@ -428,7 +426,7 @@ namespace TimerControl
         /// <param name="Value">文本</param>
         private void MessageBoxShow(string Value)
         {
-            _this.Invoke(new Action(()=> {
+            _this.Invoke(new Action(() => {
                 MessageBox.Show(Value);
             }));
         }
@@ -437,7 +435,7 @@ namespace TimerControl
         /// 向clinet客户端发送信息
         /// </summary>
         /// <param name="StateCode"></param>
-        private void Clinet_Send(int StateCode,string Value = "")
+        private void Clinet_Send(int StateCode, string Value = "")
         {
             //定义需要传输的数据
             transmitMessage.StateCode = StateCode;
@@ -457,7 +455,7 @@ namespace TimerControl
             //等待发送信息的线程完成
             AutoResetEventList[transmitMessage.StateCode].WaitOne();
         }
-       
+
         /// <summary>
         /// 选择新的连接刷新页面
         /// </summary>
